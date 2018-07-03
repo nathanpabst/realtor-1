@@ -34,7 +34,7 @@ class App extends Component {
 
   render () {
     const {selectedListingId, listings} = this.state;
-    const selectedListing = listings.find(listing => listing.id === selectedListingId);
+    const selectedListing = listings.find(listing => listing.id === selectedListingId) || {nope: 'nope'};
     return (
       <div className="App">
         <div className="col-sm-6">
