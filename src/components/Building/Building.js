@@ -2,14 +2,15 @@ import React from 'react';
 
 import './Building.css';
 
-import {listingOptionalShape} from '../../propz/listingProp';
-import {formatPrice} from '../../helpers';
+import BuildingTitle from '../BuildingTile/BuildingTile';
+import { listingOptionalShape } from '../../propz/listingProp';
+import { formatPrice } from '../../helpers';
 
 class Building extends React.Component {
   static propTypes = { listing: listingOptionalShape };
 
   render () {
-    const {listing} = this.props;
+    const { listing } = this.props;
     if (listing.nope) {
       return (
         <div className="Building">
@@ -21,7 +22,7 @@ class Building extends React.Component {
       <div className="Building">
         <div className="row">
           <div className="col-xs-6">
-            <img className="building-image" src={listing.imageUrl} alt="Selected Building"/>
+            <img className="building-image" src={listing.imageUrl} alt="Selected Building" />
           </div>
           <div className="col-xs-6">
             <h3>{formatPrice(listing.price)}</h3>
@@ -31,6 +32,28 @@ class Building extends React.Component {
             <h5>{listing.squareFootage} ft<sup>2</sup></h5>
             <p>{listing.description}</p>
           </div>
+        </div>
+        <div className="row">
+          <BuildingTitle
+            imageSrc = 'cal'
+            altText = 'calendar'
+            pTagText = {`Built: ${listing.yearBuilt}`}
+          />
+          <BuildingTitle
+            imageSrc = 'hill'
+            altText = 'hill'
+            pTagText = {`${listing.lotInAcres} acres`}
+          />
+          <BuildingTitle
+            imageSrc = 'flame'
+            altText = 'flame'
+            pTagText = {listing.heating}
+          />
+          <BuildingTitle
+            imageSrc = 'snow'
+            altText = 'snow'
+            pTagText = {listing.cooling}
+          />
         </div>
       </div>
     );
