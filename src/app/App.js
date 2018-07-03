@@ -6,6 +6,7 @@ import listingRequests from '../firebaseRequests/listings';
 import Listings from '../components/Listings/Listings';
 import Building from '../components/Building/Building';
 import ListingForm from '../components/ListingForm/ListingForm';
+// import BuildingTile from '../components/BuildingTile/BuildingTile';
 
 import './App.css';
 
