@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import './ListingForm.css';
 
 const defaultListing = {
@@ -21,6 +23,10 @@ const defaultListing = {
 };
 
 class ListingForm extends React.Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  }
+
   state = {
     newListing: defaultListing,
   }
